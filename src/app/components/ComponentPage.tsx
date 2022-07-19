@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@leafygreen-ui/box';
-import {H1} from '@leafygreen-ui/typography';
+import {H3} from '@leafygreen-ui/typography';
 import {useParams} from 'react-router-dom';
 
 const ComponentPage = ({}) => {
@@ -8,8 +8,7 @@ const ComponentPage = ({}) => {
 
     return (
         <Box>
-            <H1>Component PAGE</H1>
-            <H1>{id}</H1>
+            <H3>{id} Component</H3>
         </Box>
     );
 };

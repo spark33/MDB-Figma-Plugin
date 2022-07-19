@@ -36,7 +36,7 @@ const App = ({}) => {
     }, []);
 
     return (
-        <MemoryRouter>
+        <MemoryRouter initialEntries={['/components']}>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route path="components">
