@@ -1,7 +1,12 @@
 import * as React from 'react';
+import '../styles/reset.css';
 import '../styles/ui.css';
-
-declare function require(path: string): any;
+import {MemoryRouter, Routes, Route} from 'react-router-dom';
+import Layout from './Layout';
+import Components from './Components';
+import ComponentPage from './ComponentPage';
+import Tokens from './Tokens';
+import Brand from './Brand';
 
 const App = ({}) => {
     const textbox = React.useRef<HTMLInputElement>(undefined);
@@ -31,17 +36,25 @@ const App = ({}) => {
     }, []);
 
     return (
-        <div>
-            <img src={require('../assets/logo.svg')} />
-            <h2>Rectangle Creator</h2>
-            <p>
+        <MemoryRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route path="components">
+                        <Route index element={<Components />} />
+                        <Route path=":id" element={<ComponentPage />} />
+                    </Route>
+                    <Route path="tokens" element={<Tokens />} />
+                    <Route path="brand" element={<Brand />} />
+                </Route>
+            </Routes>
+            {/* <p>
                 Count: <input ref={countRef} />
             </p>
             <button id="create" onClick={onCreate}>
                 Create
             </button>
-            <button onClick={onCancel}>Cancel</button>
-        </div>
+            <button onClick={onCancel}>Cancel</button> */}
+        </MemoryRouter>
     );
 };
 

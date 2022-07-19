@@ -9,8 +9,16 @@
 		"prettier:format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' "
 	},
 	"dependencies": {
+		"@leafygreen-ui/box": "^3.0.7",
+		"@leafygreen-ui/button": "^16.0.0",
+		"@leafygreen-ui/code": "^12.0.1",
+		"@leafygreen-ui/leafygreen-provider": "^2.3.0",
+		"@leafygreen-ui/logo": "^6.1.2",
+		"@leafygreen-ui/mongo-nav": "^9.2.0",
+		"@leafygreen-ui/tabs": "^8.0.0",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"react-dom": "^17.0.2",
+		"react-router-dom": "^6.3.0"
 	},
 	"devDependencies": {
 		"@figma/plugin-typings": "^1.24.0",
