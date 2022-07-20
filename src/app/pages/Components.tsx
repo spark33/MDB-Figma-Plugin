@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@leafygreen-ui/box';
-import {H1} from '@leafygreen-ui/typography';
-import {Link} from 'react-router-dom';
+import { H1 } from '@leafygreen-ui/typography';
+import { Link } from 'react-router-dom';
 
 const sampleComponentList = ['Badge', 'Banner', 'Toast'];
 

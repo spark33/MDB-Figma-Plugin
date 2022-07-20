@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@leafygreen-ui/box';
-import {H1} from '@leafygreen-ui/typography';
+import { H1 } from '@leafygreen-ui/typography';
 
 const Brand = ({}) => {
   return (

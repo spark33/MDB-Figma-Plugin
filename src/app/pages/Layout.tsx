@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../styles/reset.css';
 import '../styles/ui.css';
-import {Tab as LGTab} from '@leafygreen-ui/tabs';
+import { Tab as LGTab } from '@leafygreen-ui/tabs';
 import Box from '@leafygreen-ui/box';
-import {Outlet, useLocation, Link} from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import Tabs from '../components/Tabs';
 
 const Layout = ({}) => {
