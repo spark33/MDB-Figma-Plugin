@@ -1,5 +1,6 @@
 figma.showUI(__html__);
 
+// TODO: figure out how to make responsive
 figma.ui.resize(400, 500);
 
 figma.ui.onmessage = (msg) => {

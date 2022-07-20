@@ -3,7 +3,7 @@ import { Overline } from '@leafygreen-ui/typography';
 import Card from '@leafygreen-ui/card';
 import { Link } from 'react-router-dom';
 import { css } from '@leafygreen-ui/emotion';
-import { useFetchComponents } from '../../services/fetch';
+import { useFetchComponents } from '../../services/api';
 
 const searchResultsStyles = css`
   margin: 0;
@@ -14,10 +14,22 @@ const searchResultsStyles = css`
   grid-gap: 18px;
 `;
 
-const searchResultsCardStyles = css`
-  display: block;
+const cardStyles = css`
   text-decoration: none;
   aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const cardImageStyles = css`
+  max-width: 100%;
+  max-height: 70%;
+`;
+
+const cardTextStyles = css`
+  position: absolute;
+  bottom: 30px;
 `;
 
 const SearchResults = ({}) => {
@@ -25,8 +37,6 @@ const SearchResults = ({}) => {
 
   if (isError) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-
-  console.log(data);
 
   return (
     <ul className={searchResultsStyles}>
@@ -40,8 +50,9 @@ const SearchResults = ({}) => {
           <li key={`${name}-${index}`}>
             {/* TODO: should pass Link to card with as? or link should be inside card? */}
             <Link to={`${id}`} className="link">
-              <Card className={searchResultsCardStyles} as="article">
-                <Overline>{name}</Overline>
+              <Card className={cardStyles} as="article">
+                <img className={cardImageStyles} src="https://placehold.jp/90x40.png" />
+                <Overline className={cardTextStyles}>{name}</Overline>
               </Card>
             </Link>
           </li>

@@ -1,12 +1,12 @@
 import React from 'react';
 import Box from '@leafygreen-ui/box';
-import { H1, Overline } from '@leafygreen-ui/typography';
+import { H2, Overline } from '@leafygreen-ui/typography';
 import Icon from '@leafygreen-ui/icon';
 import { palette } from '@leafygreen-ui/palette';
 import Card from '@leafygreen-ui/card';
 import { css, cx } from '@leafygreen-ui/emotion';
 import { Link, useParams } from 'react-router-dom';
-import { useFetchComponent } from '../services/fetch';
+import { useFetchComponent } from '../services/api';
 
 const padding = css`
   padding: 0 12px;
@@ -18,13 +18,19 @@ const componentCardStyles = css`
 
 const backButtonStyles = css`
   display: flex;
-  margin-top: 16px;
+  margin: 16px 0;
   text-decoration: none;
   position: relative;
+  align-items: center;
+  padding: 6px 0px;
 `;
 
 const backButtonIconStyles = css`
   margin-right: 8px;
+`;
+
+const headerStyles = css`
+  text-transform: capitalize;
 `;
 
 const ComponentPage = ({}) => {
@@ -48,7 +54,7 @@ const ComponentPage = ({}) => {
         <Overline>Back</Overline>
       </Link>
 
-      <H1>{name}</H1>
+      <H2 className={headerStyles}>{name}</H2>
 
       <Card className={componentCardStyles} as="article">
         <Overline>{name}</Overline>
