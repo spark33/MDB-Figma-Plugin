@@ -4,8 +4,9 @@ import { H1, Overline } from '@leafygreen-ui/typography';
 import Icon from '@leafygreen-ui/icon';
 import { palette } from '@leafygreen-ui/palette';
 import Card from '@leafygreen-ui/card';
-import { Link, useParams } from 'react-router-dom';
 import { css, cx } from '@leafygreen-ui/emotion';
+import { Link, useParams } from 'react-router-dom';
+import { useFetchComponent } from '../services/fetch';
 
 const padding = css`
   padding: 0 12px;
@@ -27,7 +28,17 @@ const backButtonIconStyles = css`
 `;
 
 const ComponentPage = ({}) => {
-  let { id: name } = useParams();
+  const { id } = useParams();
+  const { data, isError } = useFetchComponent(Number(id));
+
+  if (isError) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+
+  const {
+    data: {
+      attributes: { name },
+    },
+  } = data;
 
   return (
     <Box className={padding}>
