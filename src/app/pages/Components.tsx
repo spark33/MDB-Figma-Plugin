@@ -1,20 +1,33 @@
 import React from 'react';
-import Box from '@leafygreen-ui/box';
-import { H1 } from '@leafygreen-ui/typography';
-import { Link } from 'react-router-dom';
+import { css } from '@leafygreen-ui/emotion';
+import SearchBar from '../components/search-bar';
+import SearchResults from '../components/search-results';
 
-const sampleComponentList = ['Badge', 'Banner', 'Toast'];
+// const sampleComponentList = [
+//   {
+//     name: 'Badge',
+//     image: '',
+//   },
+//   {
+//     name: 'Banner',
+//     image: '',
+//   },
+//   {
+//     name: 'Toast',
+//     image: '',
+//   }
+// ];
+
+const padding = css`
+  padding: 0 12px;
+`;
 
 const Components = ({}) => {
   return (
-    <Box>
-      <H1>Components</H1>
-      {sampleComponentList.map((name) => (
-        <Box>
-          <Link to={name}>{name}</Link>
-        </Box>
-      ))}
-    </Box>
+    <div className={padding}>
+      <SearchBar />
+      <SearchResults />
+    </div>
   );
 };
 
