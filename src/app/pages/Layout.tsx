@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import '../styles/reset.css';
 import '../styles/ui.css';
 import { Tab as LGTab } from '@leafygreen-ui/tabs';
 import Box from '@leafygreen-ui/box';
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import Tabs from '../components/Tabs';
 
 const Layout = ({}) => {
   const [selected, setSelected] = useState<number>(0);
-  const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <Box>
