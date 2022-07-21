@@ -6,15 +6,6 @@ import Tabs from '../components/Tabs';
 import { Tab as LGTab } from '@leafygreen-ui/tabs';
 import Markdown from '../components/Markdown';
 
-// const Documentation  = ({}) => {
-//   useEffect( () => {
-
-//   }, []);
-//   return (
-//     <Markdown content={} />
-//   );
-// }
-
 const ComponentPage = ({}) => {
   let { id } = useParams();
   const [selected, setSelected] = useState<number>(0);
@@ -25,7 +16,7 @@ const ComponentPage = ({}) => {
       <Tabs setSelected={setSelected} selected={selected} aria-labelledby="component-page-tabs">
         <LGTab name="Variants"></LGTab>
         <LGTab name="Documentation">
-          <Markdown content="# Test" />
+          <Markdown content="### Sample Content" />
         </LGTab>
         <LGTab name="Jira"></LGTab>
       </Tabs>
