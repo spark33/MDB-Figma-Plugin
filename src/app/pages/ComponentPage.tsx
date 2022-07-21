@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@leafygreen-ui/box';
 import { H2, Overline } from '@leafygreen-ui/typography';
 import Icon from '@leafygreen-ui/icon';
@@ -7,6 +7,10 @@ import Card from '@leafygreen-ui/card';
 import { css, cx } from '@leafygreen-ui/emotion';
 import { Link, useParams } from 'react-router-dom';
 import { useFetchComponent } from '../services/api';
+import { useParams } from 'react-router-dom';
+import Tabs from '../components/Tabs';
+import { Tab as LGTab } from '@leafygreen-ui/tabs';
+import Markdown from '../components/Markdown';
 
 const padding = css`
   padding: 0 12px;
@@ -35,6 +39,7 @@ const headerStyles = css`
 
 const ComponentPage = ({}) => {
   const { id } = useParams();
+  const [selected, setSelected] = useState<number>(0);
   const { data, isError } = useFetchComponent(Number(id));
 
   if (isError) return <div>failed to load</div>;
@@ -53,14 +58,20 @@ const ComponentPage = ({}) => {
         <Icon className={backButtonIconStyles} glyph="ChevronLeft" fill={palette.black} />
         <Overline>Back</Overline>
       </Link>
-
       <H2 className={headerStyles}>{name}</H2>
+      <Tabs setSelected={setSelected} selected={selected} aria-labelledby="component-page-tabs">
+        <LGTab name="Variants"></LGTab>
+        <LGTab name="Documentation">
+          <Markdown content="### Sample Content" />
+        </LGTab>
+        <LGTab name="Jira"></LGTab>
+      </Tabs>
 
       <Card className={componentCardStyles} as="article">
         <Overline>{name}</Overline>
       </Card>
     </Box>
-  );
+  )
 };
 
 export default ComponentPage;
