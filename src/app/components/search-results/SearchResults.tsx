@@ -32,6 +32,11 @@ const cardTextStyles = css`
   bottom: 30px;
 `;
 
+const cardLinkStyles = css`
+  text-decoration: none;
+  position: relative;
+`;
+
 const SearchResults = ({}) => {
   const { data, isError } = useFetchComponents();
 
@@ -49,7 +54,7 @@ const SearchResults = ({}) => {
         return (
           <li key={`${name}-${index}`}>
             {/* TODO: should pass Link to card with as? or link should be inside card? */}
-            <Link to={`${id}`} className="link">
+            <Link to={`${id}`} className={cardLinkStyles}>
               <Card className={cardStyles} as="article">
                 <img className={cardImageStyles} src="https://placehold.jp/90x40.png" />
                 <Overline className={cardTextStyles}>{name}</Overline>

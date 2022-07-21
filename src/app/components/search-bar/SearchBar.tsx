@@ -28,8 +28,13 @@ const searchInputStyles = css`
 `;
 
 const SearchBar = ({}) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('submit');
+  };
+
   return (
-    <form role="search" className={searchStyles}>
+    <form role="search" className={searchStyles} onSubmit={handleSubmit}>
       <Icon className={searchIconStyles} glyph="MagnifyingGlass" fill={palette.black} />
       <TextInput className={searchInputStyles} aria-labelledby="search" placeholder="search" />
     </form>
