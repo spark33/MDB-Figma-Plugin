@@ -19,8 +19,8 @@ const App = ({}) => {
               <Route index element={<Components />} />
               <Route path=":id" element={<ComponentPage />} />
             </Route>
-            <Route path="tokens" element={<Tokens />} />
-            <Route path="brand" element={<Brand />} />
+            <Route path="foundations" element={<Tokens />} />
+            <Route path="linter" element={<Brand />} />
           </Route>
         </Routes>
       </MemoryRouter>
