@@ -48,68 +48,13 @@ const ComponentPage = ({}) => {
 
   const {
     data: {
-      attributes: { name },
+      attributes: {
+        name,
+        DesignGuideline: { content },
+        component_figma_versions: { data: versions },
+      },
     },
   } = data;
-
-  const sampleVersions = [
-    {
-      version: 1.0,
-      title: 'Dark Mode',
-      publishedAt: Date(),
-      people: ['Ksenia', 'Will', 'Fajar'],
-      description: 'This is the first version of the Badge',
-      figmaLink: 'https://www.figma.com/file/4GFJHVWYqvBoXtfzIjQdsT/personal-website-sketches?node-id=91%3A2',
-    },
-    {
-      version: 2.0,
-      title: 'Updating Colors',
-      publishedAt: Date(),
-      people: ['Sean', 'Tim', 'Shaneeza'],
-      description: 'This is the second version of the Badge',
-      figmaLink: 'https://www.figma.com/file/4h2VwjCuJUbeZ7hzD2J1rq/LeafyGreen-Design-System?node-id=5620%3A44056',
-    },
-  ];
-
-  const sampleDocumentation = `  
-  ### Do's
-  
-  - Ensure to align the badge with the item or content it is identifying
-  - Label text should not wrap
-  - Use one label per badge
-  
-  ### Don'ts
-  
-  - Do not use it as a button or link
-  - Do not use actionable words for the badge that conveys its interactive state
-  - Do not use it with icons
-  
-  #### Examples
-  
-  Colors can define the different states of the badge is identifying.
-  
-  Use different colors to show different status
-  
-  Do not use actionable words for the badge that conveys its interactive state.
-  
-  Do not use it as a button or link
-
-  Label text should not wrap
-  
-  ### Color Usage
-  
-  Colors can define the different states of the badge is identifying.
-  
-  - **Light Gray**: Default badge. Use this badge on dark background for higher contrast or when the badge needs a subtle presence on the page.
-    Could be confusing with the small size button; no action verb for the label.
-  - **White**: Use this badge when higher contrast is needed on a light background.
-  - **Blue**: Use this badge to call attention to information that needs to stand out.
-  - **Green**: Use to communicate the status of content. (Approved, successful, positive)
-    - _Exception_: A green badge can be used other than displaying status when there needs to be a differentiation from the other color badges.
-  - **Yellow**: Use to communicate the status of content. (Warning)
-  - **Red**: Use to communicate the status of content. (Critical, errors, failed, disabled)
-  
-  `;
 
   return (
     <Box className={padding}>
@@ -126,14 +71,14 @@ const ComponentPage = ({}) => {
           </Card>
         </LGTab>
         <LGTab name="Documentation">
-          <Markdown content={sampleDocumentation} />
+          <Markdown content={content} />
         </LGTab>
         <LGTab name="Jira">
           <JiraIssues />
         </LGTab>
         <LGTab name="Updates">
-          {sampleVersions.map((version) => (
-            <VersionCard version={version} />
+          {versions.map((version) => (
+            <VersionCard version={version.attributes} />
           ))}
         </LGTab>
       </Tabs>

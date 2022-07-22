@@ -23,7 +23,7 @@ const componentOptions = {
 };
 
 const markdownStyles = css`
-  margin-top: 8px;
+  padding: 8px 0;
 
   h1,
   h2,

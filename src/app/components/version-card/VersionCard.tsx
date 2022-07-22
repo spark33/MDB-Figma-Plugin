@@ -8,7 +8,7 @@ import Badge from '@leafygreen-ui/badge';
 
 const versionStyles = css`
   display: flex;
-  margin: 16px 8px;
+  margin: 16px 8px 28px 8px;
   justify-content: flex-start;
   align-items: flex-start;
 `;
@@ -20,27 +20,48 @@ const iconStyles = css`
 
 const versionTextStyles = css`
   margin-left: 8px;
+  > * {
+    padding-bottom: 4px;
+  }
 `;
 
-const badgeContainerStyles = css`
+const row = css`
   display: flex;
   flex-direction: row;
+  align-items: center;
+`;
+
+const badgeStyles = css`
+  margin-right: 4px;
+`;
+
+const versionBadge = css`
+  margin-left: 8px;
 `;
 
 const findComponent = (link: string) => {
   parent.postMessage({ pluginMessage: { type: 'focus-component', link } }, '*');
 };
 
+const people = ['Ksenia', 'Will', 'Fajar'];
+
 const VersionCard = ({ version }) => {
   return (
     <Box className={versionStyles}>
       <Icon glyph="TimeSeries" className={iconStyles} />
       <Box className={versionTextStyles}>
-        <Subtitle>{version.title}</Subtitle>
+        <Box className={row}>
+          <Subtitle>Version Title</Subtitle>{' '}
+          <Badge variant="lightgray" className={versionBadge}>
+            V{version.version}
+          </Badge>
+        </Box>
         <Disclaimer>Component published {version.publishedAt}</Disclaimer>
-        <Box className={badgeContainerStyles}>
-          {version.people.map((name) => (
-            <Badge variant="blue">@{name}</Badge>
+        <Box className={row}>
+          {people.map((name) => (
+            <Badge variant="blue" className={badgeStyles} key={name}>
+              @{name}
+            </Badge>
           ))}
         </Box>
         <Body>{version.description}</Body>
