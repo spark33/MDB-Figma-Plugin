@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '@leafygreen-ui/card';
 // import ExpandableCard from '@leafygreen-ui/expandable-card';
 import { Subtitle, Overline } from '@leafygreen-ui/typography';
