@@ -47,7 +47,10 @@ const ComponentPage = ({}) => {
 
   const {
     data: {
-      attributes: { name },
+      attributes: {
+        name,
+        DesignGuideline: { content },
+      },
     },
   } = data;
 
@@ -66,7 +69,7 @@ const ComponentPage = ({}) => {
           </Card>
         </LGTab>
         <LGTab name="Documentation">
-          <Markdown content="### Sample Content" />
+          <Markdown content={content} />
         </LGTab>
         <LGTab name="Jira">
           <JiraIssues />
