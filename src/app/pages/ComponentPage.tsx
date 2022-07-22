@@ -19,6 +19,7 @@ const padding = css`
 
 const componentCardStyles = css`
   aspect-ratio: 16 / 9;
+  margin-top: 8px;
 `;
 
 const backButtonStyles = css`
@@ -36,6 +37,10 @@ const backButtonIconStyles = css`
 
 const headerStyles = css`
   text-transform: capitalize;
+`;
+
+const componentVariant = css`
+  margin: 0 8px;
 `;
 
 const ComponentPage = ({}) => {
@@ -69,6 +74,18 @@ const ComponentPage = ({}) => {
         <LGTab name="Variants">
           <Card className={componentCardStyles} as="article">
             <Overline>{name}</Overline>
+            <Box
+              className={css`
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+              `}
+            >
+              {variants.map((variant) => (
+                <img className={componentVariant} src={variant.attributes.thumbnail.data.attributes.name} />
+              ))}
+            </Box>
           </Card>
         </LGTab>
         <LGTab name="Documentation">
