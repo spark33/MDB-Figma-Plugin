@@ -6,11 +6,11 @@ import { palette } from '@leafygreen-ui/palette';
 import Card from '@leafygreen-ui/card';
 import { css, cx } from '@leafygreen-ui/emotion';
 import { Link, useParams } from 'react-router-dom';
-import { useFetchComponent } from '../services/api';
-import { useParams } from 'react-router-dom';
+import { useFetchComponent } from '../services/strapi';
 import Tabs from '../components/Tabs';
 import { Tab as LGTab } from '@leafygreen-ui/tabs';
 import Markdown from '../components/Markdown';
+import JiraIssues from '../components/jira-issues';
 
 const padding = css`
   padding: 0 12px;
@@ -60,18 +60,20 @@ const ComponentPage = ({}) => {
       </Link>
       <H2 className={headerStyles}>{name}</H2>
       <Tabs setSelected={setSelected} selected={selected} aria-labelledby="component-page-tabs">
-        <LGTab name="Variants"></LGTab>
+        <LGTab name="Variants">
+          <Card className={componentCardStyles} as="article">
+            <Overline>{name}</Overline>
+          </Card>
+        </LGTab>
         <LGTab name="Documentation">
           <Markdown content="### Sample Content" />
         </LGTab>
-        <LGTab name="Jira"></LGTab>
+        <LGTab name="Jira">
+          <JiraIssues />
+        </LGTab>
       </Tabs>
-
-      <Card className={componentCardStyles} as="article">
-        <Overline>{name}</Overline>
-      </Card>
     </Box>
-  )
+  );
 };
 
 export default ComponentPage;

@@ -180,7 +180,7 @@
     "@leafygreen-ui/hooks" "^7.0.0"
     "@leafygreen-ui/lib" "^9.0.0"
 
-"@leafygreen-ui/badge@^5.0.0":
+"@leafygreen-ui/badge@^5.0.0", "@leafygreen-ui/badge@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@leafygreen-ui/badge/-/badge-5.0.1.tgz#fd4a1848f80afe7a2ba75540bc737a031192a99b"
   integrity sha512-KbDyTGOvpbO0LswEDUfPaTVBnCygYl/jjG1ITchg5gVtrT7FDI79hYJai+LffPWJEjr96Zg0QID72+TX6nrvxA==
@@ -256,6 +256,17 @@
     "@emotion/css" "^11.1.3"
     "@emotion/react" "^11.4.0"
     "@emotion/server" "^11.4.0"
+
+"@leafygreen-ui/expandable-card@^0.9.5":
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/@leafygreen-ui/expandable-card/-/expandable-card-0.9.5.tgz#b7a8e98ae177b383e78fd41aa9375ed7ede4e634"
+  integrity sha512-uP55AuYooOt7lgh74NSbsSEzgzPXgxp79wLDJ9sf8OUeGVnn0cGKfDqB/pVBUKnIj7f5BkIqQyECd7NaYJS8Xg==
+  dependencies:
+    "@leafygreen-ui/card" "^6.0.1"
+    "@leafygreen-ui/icon" "^11.10.0"
+    "@leafygreen-ui/lib" "^9.3.0"
+    "@leafygreen-ui/typography" "^11.0.2"
+    react-transition-group "^4.4.1"
 
 "@leafygreen-ui/hooks@^7.0.0", "@leafygreen-ui/hooks@^7.1.0", "@leafygreen-ui/hooks@^7.3.0":
   version "7.3.0"
@@ -507,7 +518,7 @@
     "@leafygreen-ui/tokens" "^1.3.1"
     lodash "^4.17.21"
 
-"@leafygreen-ui/typography@^11.0.0":
+"@leafygreen-ui/typography@^11.0.0", "@leafygreen-ui/typography@^11.0.2":
   version "11.0.2"
   resolved "https://registry.yarnpkg.com/@leafygreen-ui/typography/-/typography-11.0.2.tgz#b4747b85e1b4c5c8175698b9378a24861f884290"
   integrity sha512-JXPpZRgwFrlIgpTWnh53i7m9OsMVLBj/jfMBCP1kpZJ+o/6Rs/OOsTbyLz8SX5WHq+HboOqlLL8PcIEk14GL3g==

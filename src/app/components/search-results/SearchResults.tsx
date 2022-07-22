@@ -3,7 +3,7 @@ import { Overline } from '@leafygreen-ui/typography';
 import Card from '@leafygreen-ui/card';
 import { Link } from 'react-router-dom';
 import { css } from '@leafygreen-ui/emotion';
-import { useFetchComponents } from '../../services/api';
+import { useFetchComponents } from '../../services/strapi';
 
 const searchResultsStyles = css`
   margin: 0;
