@@ -24,7 +24,7 @@ const cardStyles = css`
 
 const cardImageStyles = css`
   max-width: 100%;
-  max-height: 70%;
+  max-height: 50%;
 `;
 
 const cardTextStyles = css`
@@ -47,7 +47,10 @@ const SearchResults = ({}) => {
     <ul className={searchResultsStyles}>
       {data.data.map((card, index: number) => {
         const {
-          attributes: { name },
+          attributes: {
+            name,
+            component_image: { data: imageData },
+          },
           id,
         } = card;
 
@@ -56,7 +59,10 @@ const SearchResults = ({}) => {
             {/* TODO: should pass Link to card with as? or link should be inside card? */}
             <Link to={`${id}`} className={cardLinkStyles}>
               <Card className={cardStyles} as="article">
-                <img className={cardImageStyles} src="https://placehold.jp/90x40.png" />
+                {imageData && (
+                  // Using 'name' is the workaround 🤫
+                  <img className={cardImageStyles} src={imageData.attributes.name} />
+                )}
                 <Overline className={cardTextStyles}>{name}</Overline>
               </Card>
             </Link>
