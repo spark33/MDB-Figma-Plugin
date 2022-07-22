@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@leafygreen-ui/box';
 import { H2, Overline } from '@leafygreen-ui/typography';
+import VersionCard from '../components/version-card';
 import Icon from '@leafygreen-ui/icon';
 import { palette } from '@leafygreen-ui/palette';
 import Card from '@leafygreen-ui/card';
@@ -47,7 +48,11 @@ const ComponentPage = ({}) => {
 
   const {
     data: {
-      attributes: { name },
+      attributes: {
+        name,
+        DesignGuideline: { content },
+        component_figma_versions: { data: versions },
+      },
     },
   } = data;
 
@@ -66,10 +71,15 @@ const ComponentPage = ({}) => {
           </Card>
         </LGTab>
         <LGTab name="Documentation">
-          <Markdown content="### Sample Content" />
+          <Markdown content={content} />
         </LGTab>
         <LGTab name="Jira">
           <JiraIssues />
+        </LGTab>
+        <LGTab name="Updates">
+          {versions.map((version) => (
+            <VersionCard version={version.attributes} />
+          ))}
         </LGTab>
       </Tabs>
     </Box>

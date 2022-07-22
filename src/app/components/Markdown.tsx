@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { H1, H2, H3, Subtitle, Body, Link } from '@leafygreen-ui/typography';
+import { css, cx } from '@leafygreen-ui/emotion';
+
+interface MarkdownProps {
+  content: string;
+  className?: string;
+}
 
 const componentOptions = {
   p: Body,
@@ -16,12 +22,31 @@ const componentOptions = {
   h4: ({ children }) => <Subtitle>{children}</Subtitle>,
 };
 
-interface Props {
-  content: string;
-}
+const markdownStyles = css`
+  padding: 8px 0;
 
-const Markdown = ({ content }: Props) => {
-  return <ReactMarkdown children={content} components={componentOptions} />;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding: 8px 0px 4px 0px;
+  }
+  p {
+    padding-bottom: 4px;
+  }
+`;
+
+const Markdown = ({ content, className, ...rest }: MarkdownProps) => {
+  return (
+    <ReactMarkdown
+      children={content}
+      components={componentOptions}
+      className={cx(className, markdownStyles)}
+      {...rest}
+    />
+  );
 };
 
 export default Markdown;
