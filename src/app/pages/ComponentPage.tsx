@@ -40,7 +40,7 @@ const headerStyles = css`
 `;
 
 const componentVariant = css`
-  margin: 0 8px;
+  margin: 8px 0;
 `;
 
 const ComponentPage = ({}) => {
