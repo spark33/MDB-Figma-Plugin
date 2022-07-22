@@ -7,10 +7,11 @@ import { palette } from '@leafygreen-ui/palette';
 import Card from '@leafygreen-ui/card';
 import { css, cx } from '@leafygreen-ui/emotion';
 import { Link, useParams } from 'react-router-dom';
-import { useFetchComponent } from '../services/api';
+import { useFetchComponent } from '../services/strapi';
 import Tabs from '../components/Tabs';
 import { Tab as LGTab } from '@leafygreen-ui/tabs';
 import Markdown from '../components/Markdown';
+import JiraIssues from '../components/jira-issues';
 
 const padding = css`
   padding: 0 12px;
@@ -127,7 +128,9 @@ const ComponentPage = ({}) => {
         <LGTab name="Documentation">
           <Markdown content={sampleDocumentation} />
         </LGTab>
-        <LGTab name="Jira"></LGTab>
+        <LGTab name="Jira">
+          <JiraIssues />
+        </LGTab>
         <LGTab name="Updates">
           {sampleVersions.map((version) => (
             <VersionCard version={version} />
