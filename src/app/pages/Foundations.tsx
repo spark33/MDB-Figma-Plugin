@@ -5,7 +5,7 @@ import { H1 } from '@leafygreen-ui/typography';
 const Tokens = ({}) => {
   return (
     <Box>
-      <H1>Tokens</H1>
+      <H1>Foundations</H1>
     </Box>
   );
 };

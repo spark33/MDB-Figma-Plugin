@@ -95,9 +95,15 @@ const ComponentPage = ({}) => {
           <JiraIssues />
         </LGTab>
         <LGTab name="Updates">
-          {versions.map((version) => (
-            <VersionCard version={version.attributes} />
-          ))}
+          <div
+            className={css`
+              padding: 0 0 8px;
+            `}
+          >
+            {versions.map((version) => (
+              <VersionCard version={version.attributes} />
+            ))}
+          </div>
         </LGTab>
       </Tabs>
     </Box>

@@ -5,7 +5,7 @@ import { H1 } from '@leafygreen-ui/typography';
 const Brand = ({}) => {
   return (
     <Box>
-      <H1>Brand</H1>
+      <H1>Linter</H1>
     </Box>
   );
 };

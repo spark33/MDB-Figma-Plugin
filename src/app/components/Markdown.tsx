@@ -31,10 +31,22 @@ const markdownStyles = css`
   h4,
   h5,
   h6 {
-    padding: 8px 0px 4px 0px;
+    margin: 12px 0px 4px 0px;
   }
   p {
-    padding-bottom: 4px;
+    margin: 12px 0;
+
+    img {
+      margin: 20px 0;
+    }
+  }
+
+  ul {
+    padding-left: 24px;
+
+    p {
+      margin: 8px 0;
+    }
   }
 `;
 

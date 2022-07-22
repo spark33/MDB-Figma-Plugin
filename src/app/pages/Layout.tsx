@@ -12,8 +12,8 @@ const Layout = ({}) => {
     <Box>
       <Tabs setSelected={setSelected} selected={selected} aria-labelledby="plugin-home-tabs" as={Link}>
         <LGTab name="Components" to="/components" />
-        <LGTab name="Tokens" to="/tokens" />
-        <LGTab name="Brand" to="/brand" />
+        <LGTab name="Foundations" to="/foundations" />
+        <LGTab name="Linter" to="/linter" />
       </Tabs>
       <Outlet />
     </Box>
