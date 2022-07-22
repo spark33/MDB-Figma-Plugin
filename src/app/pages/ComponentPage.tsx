@@ -52,6 +52,7 @@ const ComponentPage = ({}) => {
         name,
         DesignGuideline: { content },
         component_figma_versions: { data: versions },
+        component_variants: { data: variants },
       },
     },
   } = data;
